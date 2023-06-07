@@ -71,6 +71,15 @@ class _CountriesListState extends State<CountriesList> {
                             MaterialPageRoute(
                               builder: (context) =>  DetailsScreen(
                                 countryName: countryName,
+                                countryFlag: countryFlag,
+                                totalCases: totalCases,
+                                totalRecovered: snapshot.data![index]['recovered'],
+                                totalDeaths: snapshot.data![index]['deaths'],
+                                todayCases: snapshot.data![index]['todayCases'],
+                                todayDeaths: snapshot.data![index]['todayDeaths'],
+                                active: snapshot.data![index]['active'],
+                                test: snapshot.data![index]['tests'],
+                                critical: snapshot.data![index]['critical'],
                               ),
                             ),
                           );
@@ -95,7 +104,25 @@ class _CountriesListState extends State<CountriesList> {
                         .toLowerCase()
                         .contains(searchController.text.toLowerCase())) {
                       return ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>  DetailsScreen(
+                                countryName: countryName,
+                                countryFlag: countryFlag,
+                                totalCases: totalCases,
+                                totalRecovered: snapshot.data![index]['recovered'],
+                                totalDeaths: snapshot.data![index]['deaths'],
+                                todayCases: snapshot.data![index]['todayCases'],
+                                todayDeaths: snapshot.data![index]['todayDeaths'],
+                                active: snapshot.data![index]['active'],
+                                test: snapshot.data![index]['tests'],
+                                critical: snapshot.data![index]['critical'],
+                              ),
+                            ),
+                          );
+                        },
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(
                             countryFlag ?? "",
