@@ -1,3 +1,4 @@
+import 'package:covid19_tracker/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CountriesList extends StatefulWidget {
@@ -36,6 +37,25 @@ class _CountriesListState extends State<CountriesList> {
             ),
           ),
           // search country text field end
+          // country list
+          Expanded(child: FutureBuilder(
+            builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+              if (!snapshot.hasData) {
+                return const Center(
+                    child: CircularProgressIndicator(
+                  color: Colors.green,
+                  semanticsValue: "Loading...",
+                  backgroundColor: Colors.white,
+                  strokeWidth: 5,
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(AppColors.deepGreen),
+                ));
+              } else {}
+              return ListView.builder(
+                itemBuilder: (context, index) {},
+              );
+            },
+          )),
         ],
       )),
     );
