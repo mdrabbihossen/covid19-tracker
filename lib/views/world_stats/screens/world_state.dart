@@ -1,7 +1,6 @@
 import 'package:covid19_tracker/utils/app_colors.dart';
+import 'package:covid19_tracker/utils/widgets/reusable_widget.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:pie_chart/pie_chart.dart';
 
 class WorldStats extends StatefulWidget {
@@ -45,7 +44,7 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                   "Recovered": 50,
                   "Deaths": 20,
                 },
-                animationDuration: const Duration(milliseconds: 800),
+                animationDuration: const Duration(milliseconds: 1200),
                 chartType: ChartType.ring,
                 colorList: AppColors.colorList,
                 chartRadius: size.width / 3.2,
@@ -53,6 +52,16 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                   legendPosition: LegendPosition.left,
                 ),
               ),
+              SizedBox(height: size.height * 0.04),
+              Card(
+                  child: Column(
+                children: [
+                  Reusable(title: 'Total', trailing: "100"),
+                  Reusable(title: 'Total', trailing: "100"),
+                  Reusable(title: 'Total', trailing: "100"),
+                  Reusable(title: 'Total', trailing: "100"),
+                ],
+              )),
             ],
           ),
         ),
