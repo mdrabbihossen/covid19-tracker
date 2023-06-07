@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -35,8 +36,12 @@ class _SplashScreenState extends State<SplashScreen>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AnimatedBuilder(
-              animation: animation,
-              builder: (context, child) {},
+              animation: _controller,
+              child: Image.asset('assets/images/virus.png'),
+              builder: (context, child) {
+                return Transform.rotate(
+                    angle: _controller.value * 2.0 * math.pi, child: child);
+              },
             )
           ],
         ),
