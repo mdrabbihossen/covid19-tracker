@@ -59,25 +59,49 @@ class _CountriesListState extends State<CountriesList> {
                     final String countryFlag =
                         snapshot.data![index]['countryInfo']['flag'];
                     final int totalCases = snapshot.data![index]['cases'];
-
-                    return ListTile(
-                      onTap: () {},
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          countryFlag ?? "",
+                    if (searchController.text.isEmpty) {
+                      return ListTile(
+                        onTap: () {},
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            countryFlag ?? "",
+                          ),
                         ),
-                      ),
-                      title: Text(
-                        countryName,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
+                        title: Text(
+                          countryName,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      subtitle: Text(
-                        "Total Cases: $totalCases",
-                      ),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                    );
+                        subtitle: Text(
+                          "Total Cases: $totalCases",
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      );
+                    } else if (countryName
+                        .toLowerCase()
+                        .contains(searchController.text.toLowerCase())) {
+                      return ListTile(
+                        onTap: () {},
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            countryFlag ?? "",
+                          ),
+                        ),
+                        title: Text(
+                          countryName,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                          "Total Cases: $totalCases",
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      );
+                    } else {
+                      return const SizedBox();
+                    }
                   },
                 );
               }
