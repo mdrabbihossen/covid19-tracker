@@ -1,5 +1,6 @@
 import 'package:covid19_tracker/services/stats_services.dart';
 import 'package:covid19_tracker/utils/app_colors.dart';
+import 'package:covid19_tracker/views/details_screen.dart';
 import 'package:flutter/material.dart';
 
 class CountriesList extends StatefulWidget {
@@ -64,7 +65,16 @@ class _CountriesListState extends State<CountriesList> {
                     final int totalCases = snapshot.data![index]['cases'];
                     if (searchController.text.isEmpty) {
                       return ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>  DetailsScreen(
+                                countryName: countryName,
+                              ),
+                            ),
+                          );
+                        },
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(
                             countryFlag ?? "",
