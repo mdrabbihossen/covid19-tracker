@@ -34,7 +34,7 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final size=MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.countryName),
@@ -45,18 +45,50 @@ class _DetailsScreenState extends State<DetailsScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 60),
             Stack(
               alignment: Alignment.topCenter,
               children: [
-                Card(
-                  child: Column(
-                    children: [
-                      SizedBox(),
-                      Reusable(
-                        title: "Total Cases",
-                        trailing: widget.totalCases.toString(),
-                      ),
-                    ],
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Card(
+                    child: Column(
+                      children: [
+                        SizedBox(height: size.height * 0.06),
+                        Reusable(
+                          title: "Total Cases",
+                          trailing: widget.totalCases.toString(),
+                        ),
+                        Reusable(
+                          title: "Total Deaths",
+                          trailing: widget.totalDeaths.toString(),
+                        ),
+                        Reusable(
+                          title: "Total Recovered",
+                          trailing: widget.totalRecovered.toString(),
+                        ),
+                        Reusable(
+                          title: "Today Cases",
+                          trailing: widget.todayCases.toString(),
+                        ),
+                        Reusable(
+                          title: "Today Deaths",
+                          trailing: widget.todayDeaths.toString(),
+                        ),
+                        Reusable(
+                          title: "Active",
+                          trailing: widget.active.toString(),
+                        ),
+                        Reusable(
+                          title: "Critical",
+                          trailing: widget.critical.toString(),
+                        ),
+                        Reusable(
+                          title: "Test",
+                          trailing: widget.test.toString(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Transform(
