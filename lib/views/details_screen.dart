@@ -1,3 +1,4 @@
+import 'package:covid19_tracker/utils/widgets/reusable_widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class DetailsScreen extends StatefulWidget {
   final int active;
   final int critical;
   final int test;
+
   const DetailsScreen({
     Key? key,
     required this.countryName,
@@ -32,6 +34,7 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.countryName),
@@ -43,8 +46,28 @@ class _DetailsScreenState extends State<DetailsScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Stack(
+              alignment: Alignment.topCenter,
               children: [
-
+                Card(
+                  child: Column(
+                    children: [
+                      SizedBox(),
+                      Reusable(
+                        title: "Total Cases",
+                        trailing: widget.totalCases.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                Transform(
+                  transform: Matrix4.translationValues(0, -50, 0),
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      widget.countryFlag,
+                    ),
+                    radius: 50,
+                  ),
+                ),
               ],
             )
           ],
