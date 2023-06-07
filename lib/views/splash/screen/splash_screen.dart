@@ -49,6 +49,14 @@ class _SplashScreenState extends State<SplashScreen>
           children: [
             AnimatedBuilder(
               animation: _controller,
+<<<<<<< HEAD
+              child: Image.asset('assets/images/virus.png'),
+              builder: (context, child) {
+                return Transform.rotate(
+                    angle: _controller.value * 2.0 * math.pi, child: child);
+              },
+            )
+=======
               child: Center(
                 child: Image.asset(
                   'assets/images/virus.png',
@@ -74,6 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
             ),
              ),
+>>>>>>> 400e9c283ba1cb325a9beb55869aef23d4b1095f
           ],
         ),
       ),
