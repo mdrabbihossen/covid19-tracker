@@ -16,7 +16,6 @@ class _CountriesListState extends State<CountriesList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -56,11 +55,11 @@ class _CountriesListState extends State<CountriesList> {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
-                    final String countryName =
-                        snapshot.data![index]['country'].toString();
+                    final String countryName = snapshot.data![index]['country'];
                     final String countryFlag =
-                        snapshot.data![index]['countryInfo']['flag'].toString();
+                        snapshot.data![index]['countryInfo']['flag'];
                     final int totalCases = snapshot.data![index]['cases'];
+
                     return ListTile(
                       onTap: () {},
                       leading: CircleAvatar(
@@ -69,7 +68,7 @@ class _CountriesListState extends State<CountriesList> {
                         ),
                       ),
                       title: Text(
-                       countryName,
+                        countryName,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
