@@ -47,13 +47,10 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                   future: StatsServices().getWorldStats(),
                   builder: (context, AsyncSnapshot<WorldStatsModel> snapshot) {
                     if (!snapshot.hasData) {
-                      return Expanded(
-                        flex: 1,
-                        child: SpinKitFadingCircle(
-                          color: AppColors.deepGreen,
-                          size: 50.0,
-                          controller: _controller,
-                        ),
+                      return SpinKitFadingCircle(
+                        color: AppColors.deepGreen,
+                        size: 50.0,
+                        controller: _controller,
                       );
                     } else {
                       return Column(
