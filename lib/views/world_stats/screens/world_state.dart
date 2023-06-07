@@ -1,5 +1,8 @@
+import 'package:covid19_tracker/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:pie_chart/pie_chart.dart';
 
 class WorldStats extends StatefulWidget {
   const WorldStats({Key? key}) : super(key: key);
@@ -36,6 +39,20 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
           child: Column(
             children: [
               SizedBox(height: size.height * 0.01),
+              PieChart(
+                dataMap: const {
+                  "Total Cases": 100,
+                  "Recovered": 50,
+                  "Deaths": 20,
+                },
+                animationDuration: const Duration(milliseconds: 800),
+                chartType: ChartType.ring,
+                colorList: AppColors.colorList,
+                chartRadius: size.width / 3.2,
+                legendOptions: const LegendOptions(
+                  legendPosition: LegendPosition.left,
+                ),
+              ),
             ],
           ),
         ),
