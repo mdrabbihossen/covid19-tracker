@@ -27,6 +27,9 @@ class _CountriesListState extends State<CountriesList> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: searchController,
+              onChanged: (value) {
+                setState(() {});
+              },
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                 hintText: "Search Country",
