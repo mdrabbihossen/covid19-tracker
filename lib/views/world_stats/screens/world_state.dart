@@ -52,8 +52,8 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                   legendPosition: LegendPosition.left,
                 ),
               ),
-              SizedBox(height: size.height * 0.04),
-              Card(
+              SizedBox(height: size.height * 0.06),
+              const Card(
                   child: Column(
                 children: [
                   Reusable(title: 'Total', trailing: "100"),
@@ -62,6 +62,28 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                   Reusable(title: 'Total', trailing: "100"),
                 ],
               )),
+              SizedBox(height: size.height * 0.06),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.deepGreen,
+                  minimumSize: Size(
+                    double.infinity,
+                    size.height * .07,
+                  ),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  'Track Countries',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
