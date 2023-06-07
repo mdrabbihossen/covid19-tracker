@@ -2,6 +2,7 @@ import 'package:covid19_tracker/model/world_stats_model.dart';
 import 'package:covid19_tracker/services/stats_services.dart';
 import 'package:covid19_tracker/utils/app_colors.dart';
 import 'package:covid19_tracker/utils/widgets/reusable_widget.dart';
+import 'package:covid19_tracker/views/country/screens/country_list.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -84,16 +85,30 @@ class _WorldStatsState extends State<WorldStats> with TickerProviderStateMixin {
                                   title: 'Total',
                                   trailing: snapshot.data!.cases.toString(),
                                 ),
-                                Reusable(title: 'Today Deaths', trailing: snapshot.data!.todayDeaths.toString()),
-                                Reusable(title: 'Critical', trailing: snapshot.data!.critical.toString()),
-                                Reusable(title: 'Affected Countries', trailing: snapshot.data!.affectedCountries.toString()),
+                                Reusable(
+                                    title: 'Today Deaths',
+                                    trailing:
+                                        snapshot.data!.todayDeaths.toString()),
+                                Reusable(
+                                    title: 'Critical',
+                                    trailing:
+                                        snapshot.data!.critical.toString()),
+                                Reusable(
+                                    title: 'Affected Countries',
+                                    trailing: snapshot.data!.affectedCountries
+                                        .toString()),
                               ],
                             ),
                           ),
                           SizedBox(height: size.height * 0.06),
                           ElevatedButton(
                             onPressed: () {
-
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CountriesList(),
+                                ),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.deepGreen,
