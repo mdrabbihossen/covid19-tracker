@@ -56,28 +56,26 @@ class _CountriesListState extends State<CountriesList> {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
+                    final String countryName =
+                        snapshot.data![index]['country'].toString();
+                    final String countryFlag =
+                        snapshot.data![index]['countryInfo']['flag'].toString();
+                    final int totalCases = snapshot.data![index]['cases'];
                     return ListTile(
                       onTap: () {},
                       leading: CircleAvatar(
                         backgroundImage: NetworkImage(
-
-                          snapshot.data![index]['countryInfo']['flag'] ??
-                              const CircularProgressIndicator(
-                                strokeWidth: 5,
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  AppColors.deepGreen,
-                                ),
-                              ),
+                          countryFlag ?? "",
                         ),
                       ),
                       title: Text(
-                        snapshot.data![index]['country'],
+                       countryName,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       subtitle: Text(
-                        "Total Cases: ${snapshot.data![index]['cases']}",
+                        "Total Cases: $totalCases",
                       ),
                       trailing: const Icon(Icons.arrow_forward_ios),
                     );
