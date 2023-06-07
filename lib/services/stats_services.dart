@@ -24,7 +24,7 @@ class StatsServices {
   // get all stats end
 
   // get all countries
-  Future<List<dynamic>> getCountriesList() async {
+  Future<List<dynamic>> getCountriesStats() async {
     try {
       final response = await https.get(
         Uri.parse(AppConstants.countries),
